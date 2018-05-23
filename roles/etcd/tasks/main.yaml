@@ -1,0 +1,24 @@
+---
+# tasks file for etcd
+
+- name: check if etcd is installed
+  raw: "etcd --version"
+  register: etcd_install
+  ignore_errors: yes
+
+- name: download and setup etcd
+  include: download.yaml
+  when: etcd_install | failed
+
+- name: create etcd service file
+  template:
+    src: etcd.conf.j2
+    dest: /etc/systemd/system/etcd.service
+  notify: restart etcd
+
+- name: start, enable etcd service
+  systemd:
+    name: etcd
+    state: started
+    enabled: yes
+    daemon_reload: yes

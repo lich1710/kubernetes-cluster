@@ -1,0 +1,14 @@
+---
+
+- name: download etcd
+  shell: wget -q \
+         https://github.com/coreos/etcd/releases/download/v3.2.6/etcd-v3.2.6-linux-amd64.tar.gz \
+         -O ./etcd.tar.gz
+- name: unzip etcd
+  shell: tar xzf ./etcd.tar.gz -C ./
+
+- name: copy etcd folder to /usr/local/bin
+  shell: mv ./etcd-v3.2.6-linux-amd64/etcd* /usr/local/bin/
+
+- name: clean up
+  shell: rm -rf ./etcd.tar.gz ./etcd-v3.2.6-linux-amd64/

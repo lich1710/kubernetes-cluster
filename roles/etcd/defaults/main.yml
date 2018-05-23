@@ -1,0 +1,4 @@
+---
+# defaults variable file for etcd
+
+etcd_cluster_name: etcd-cluster-0

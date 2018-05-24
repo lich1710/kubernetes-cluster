@@ -11,7 +11,7 @@ Requirements
       13.229.50.228 master2,etcd2
       13.229.140.77 master3,etcd3
 ```
-- Setup ssh key login between ansible host and 3 servers.
+- Setup ssh key login between ansible host and 3 servers, save the public key as pub.pem and put in the ansible project folder.
 - Edit inventory file with your config
 
 

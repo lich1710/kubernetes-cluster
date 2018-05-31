@@ -1,0 +1,14 @@
+---
+
+- name: download kubernetes
+  shell: wget -q \
+         https://dl.k8s.io/v1.7.6/kubernetes-server-linux-amd64.tar.gz \
+         -O ./k8s.tar.gz
+- name: unzip k8s
+  shell: tar xzf ./k8s.tar.gz -C ./
+
+- name: copy k8s folder to /usr/local/bin
+  shell: mv ./kubernetes/server/bin/* /usr/local/bin/
+
+- name: clean up
+  shell: rm -rf kubernetes/ k8s.tar.gz

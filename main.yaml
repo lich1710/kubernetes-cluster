@@ -5,3 +5,10 @@
   roles:
     - role: etcd
       tags: [ etcd ]
+
+- name: Configure master cluster
+  hosts: master
+  become: true
+  roles:
+    - role: k8s
+      tags: [k8s]

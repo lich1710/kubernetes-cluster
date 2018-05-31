@@ -1,0 +1,10 @@
+---
+# tasks file for k8s
+
+- name: check if kubernetes is installed
+  raw: "kube-apiserver --version"
+  register: kube_install
+  ignore_errors: yes
+- name: download and setup k8s
+  include: download.yaml
+  when: kube_install | failed

@@ -1,7 +1,6 @@
 ANSIBLE_COMMAND = ansible-playbook
 
 init:
-	export ANSIBLE_HOST_KEY_CHECKING=false
 	${ANSIBLE_COMMAND} initHost.yaml
 connect:
 	ansible -i inventory -m ping all
